@@ -26,3 +26,4 @@ $api->version('v2', function($api) {
         return response('this is version v2');
     });
 });
+
