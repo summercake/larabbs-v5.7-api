@@ -8,8 +8,13 @@ class PagesController extends Controller
 {
     public function root()
     {
-        dd($GLOBALS);
+
         return view('pages.root');
+    }
+
+    public function test()
+    {
+        dd($GLOBALS);
     }
 
     public function permissionDenied()
