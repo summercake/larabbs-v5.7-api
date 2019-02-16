@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use function PHPSTORM_META\type;
 
 class PagesController extends Controller
 {
@@ -14,7 +15,12 @@ class PagesController extends Controller
 
     public function test()
     {
-        dd($GLOBALS);
+        $file = readfile(base_path().'readme.md');
+        $data = [
+            'type' => type($file),
+            'data' => $file,
+        ];
+        dd($data);
     }
 
     public function permissionDenied()
@@ -23,6 +29,7 @@ class PagesController extends Controller
         if (config('administrator.permission')()) {
             return redirect(url(config('administrator.uri')), 302);
         }
+
         // 否则使用视图
         return view('pages.permission_denied');
     }
