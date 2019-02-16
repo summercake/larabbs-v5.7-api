@@ -16,11 +16,11 @@ class PagesController extends Controller
     public function test()
     {
         $file = readfile(base_path().'/readme.md');
-        $data = [
-            'type' => type($file),
-            'data' => $file,
-        ];
-        dd($data);
+        //$data = [
+        //    'type' => type($file),
+        //    'data' => $file,
+        //];
+        dd($file);
     }
 
     public function permissionDenied()
