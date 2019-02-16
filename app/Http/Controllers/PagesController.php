@@ -15,11 +15,7 @@ class PagesController extends Controller
 
     public function test()
     {
-        $file = readfile(base_path().'/readme.md');
-        //$data = [
-        //    'type' => type($file),
-        //    'data' => $file,
-        //];
+        $file = fopen(base_path().'/readme.md', 'r');
         dd($file);
     }
 
