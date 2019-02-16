@@ -16,7 +16,11 @@ class PagesController extends Controller
     public function test()
     {
         $file = fopen(base_path().'/readme.md', 'r+');
+        $text = 'This is appended content';
+        fwrite($file, $text);
+        $file = fread($file, filesize(base_path().'/readme.md'));
         dd($file);
+        fclose($file);
     }
 
     public function permissionDenied()
