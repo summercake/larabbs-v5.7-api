@@ -8,6 +8,7 @@ class PagesController extends Controller
 {
     public function root()
     {
+        dd($GLOBALS);
         return view('pages.root');
     }
 
